@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.intro-header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: url('http://cartype.com/pics/1613/full/nash_rambler.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 850px;
+}
+body{
+    background:url(backgroundimage1.gif);
+    font-family: Arial;
+    font-size:small;
+    margin-left: auto;
+    margin-right: auto;
+    width:400px;
+}
+header {
+    font-family: 'Shrikhand';
+    text-align: center;
+    width: 400px;
+    color: #800080;
+    }
+h1 {text-align:center;
+    font-family: 'Oswald',sans-serif;
+    color:#800080;
+    }
+h2 {text-align:center;
+font-family: 'Oswald',sans-serif;
+    color:#800080;
+}
+h3 {text-align:center;
+font-family: 'Oswald', sans-serif;
+    color:#800080;
+    }
+p {text-align:center;
+font-family:'Oswald', sans-serif;
+color:#800080;
+}
+ul {text-align:left;
+font-family: 'Oswald', sans-serif;
+    color:#800080;
+    }
+table {
+    color: #800080;
+    border-collapse: separate;
+    border-spacing: 4px;
+    }
+table,
+th,
+td {border:1px solid #800080;}
+th,
+td{
+    padding: 10px 15px;
+}
+#MyMap {text-align:center}
+#btroll a{
+    display: inline-block;
+    height: 50px;
+    width: 124px;
+    background: url("btroll.gif") no-repeat;
+    text-decoration: none;
+    float: left;
+    border: red;
+}
+#btroll a:hover{background-position: 0-50px}
+
+
+</style>

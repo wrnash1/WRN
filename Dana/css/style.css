@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.general-header {
+    text-align: center;
+    color: white;
+    background: url('../photo/img3.gif');
+    margin-left: auto;
+    background-size: cover;
+    height: 850px;
+}
+
+.body {
+    background: url('../photo/backgroundimage1.gif');
+    color: white;
+    font-family: Arial;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.web-header {
+    text-align: center;
+    color: white;
+    background: url('../photo/img2.gif');
+    background-size: cover;
+    height: 850px;
+    ;
+}
+
+.computer-header {
+    text-align: center;
+    color: white;
+    background: url('../photo/giphy.gif');
+    background-size: cover;
+    height: 850px;
+    ;
+}
+
+header {
+    font-family: 'Shrikhand';
+    text-align: center;
+    color: #800080;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #800080;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #800080;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #800080;
+}
+
+p {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #800080;
+}
+
+ul {
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+    color: #800080;
+}
+
+table {
+    color: #800080;
+    border-collapse: separate;
+    border-spacing: 4px;
+}
+
+table, th, td {
+    border: 1px solid #800080;
+}
+
+th, td {
+    padding: 10px 15px;
+}
+IMG.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+</style>
