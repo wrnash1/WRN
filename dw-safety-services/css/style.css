@@ -1,0 +1,29 @@
+.nav-pills{
+ font-size: 1.7em;
+ background-color: black;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+body{
+  background-color: white;
+  color:white;
+}
+
+h1{
+  padding:0;
+  margin-top:0px;
+}
+
+.pageOne{
+  background:url("https://images.unsplash.com/photo-1471109880861-75a04f9b7833?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=29695786032bbef72e5f65739a90bd2c");
+  background-size:800px;
+  height: auto;
+
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
+}
