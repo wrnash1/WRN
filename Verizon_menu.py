@@ -1,5 +1,8 @@
 from tkinter import *
 from tkinter import ttk
+import sqlite3
+
+conn = sqlite3.connect('verizon.db')
 
 root = Tk()
 root.title('Verizon UTPM Tracker Verson 1 Alpha')
@@ -26,6 +29,10 @@ def count_char(txt):
     for char in txt:
         result +=1
     return result
+
+def submit():
+    return
+
 
 #Menu
 file_menu = Menu(root)
@@ -498,6 +505,13 @@ example5.grid(row=31, column=8, sticky="ew")
 example6.grid(row=32, column=8, sticky="ew")
 
 
+#create Submit Button
+submit_btn = Button(my_frame2, text="Add Record to Database", command=submit)
+submit_btn.grid(row=6, Column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
+#Comment Changes
+conn.commit()
+#Close database connection
+conn.closes()
 
 root.mainloop()
