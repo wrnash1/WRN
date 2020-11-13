@@ -1,8 +1,35 @@
+#Things to do:
+#Market tab when select city use that city to fill data on all the other tabs
+#Market tab select PM
+#Market Tab Add digital clock with date
+#Market tab add Manufacre: Cisco or Ciena
+#Market tab Display infomration about the project
+#market tab drop down menu need to figure out how to add child menu
+#PM Entry all white boxes needs to display values from database and be able to update value to database.
+#PM Entry need to figure out how to count text and display an alert of more than 70 char in the issue fields
+#PM Entry add scroll bar if text is larger then window
+#PM Entry Create dropdown boxes with the following values:
+#Green = On Track
+#Yellow = At risk
+#Red = Jeopardy
+#Blue = Complete
+#PM Entry pull data from either excel or splunk to fill in all Gray boxes.
+#Sites search for all sites from city in Database or splunk and print data to screen
+#Circuits search for all circuits in city in Database or splunk and print to screen
+#Maps Tab need to be able to store a .jpg image and retrieve to display in Powerpoint
+#MAPS Note could be multiple visio pictures.
+#Map tab display .jpg image
+#ActiveCCR connect to database via an DSN connection and select all Open tickets that is assign to PM
+#Then display the data.  When PM click on CCR number it will open a web broswer to CCP.
+
+
 from tkinter import *
 from tkinter import ttk
 import sqlite3
 
+#Create sqlite3 database to hold values from PM Entry
 conn = sqlite3.connect('verizon.db')
+c = conn.cursor()
 
 root = Tk()
 root.title('Verizon UTPM Tracker Verson 1 Alpha')
@@ -31,7 +58,20 @@ def count_char(txt):
     return result
 
 def submit():
-    return
+    #need to add all values into the database
+    c.execute("INSERT INTO market VALUES('psc_complete', )")
+
+def show_all():
+    conn = sqlite3.connect('verizon.db')
+    c = conn.cursor()
+    #Query the Database
+    c.execute("SELECT rowid, * FROM market")
+    items = c.fetchall()
+
+def add_records():
+    conn = sqlite3.connect('verizon.db')
+    c = conn.cursor()
+    c.executemany("INSERT INTO market VALUES (?,?,?)", (test, test, test))
 
 
 #Menu
@@ -55,18 +95,26 @@ tabs_menu.add_command(label="Active CCRs", command=menu_command)
 tabs_menu.add_command(label="PM Entry", command=menu_command)
 
 #create theme
-myVerizon_green = "#546391"
-myVerison_red = "#a14a6e"
+#myVerizon_green = "#546391"
+#myVerison_red = "#a14a6e"
 
-style = ttk.Style()
+#style = ttk.Style()
 
-style.theme_create( "Verizon", parent="alt", settings={
-    "TNotebook": {"configure": {"tabmargins": [2,5,2,0]}},
-    "TNotebook.Tab": {
-        "configure": {"padding": [5,1], "background": myVerison_red},
-        "map":        {"background": [("selected", myVerizon_green)],
-        "expand": [("selected", [1,1,1,0])]}}})
-style.theme_use("Verizon")
+#style.theme_create( "Verizon", parent="alt", settings={
+#    "TNotebook": {"configure": {"tabmargins": [2,5,2,0]}},
+#    "TNotebook.Tab": {
+#        "configure": {"padding": [5,1], "background": myVerison_red},
+#        "map":        {"background": [("selected", myVerizon_green)],
+#        "expand": [("selected", [1,1,1,0])]}}})
+#style.theme_use("Verizon")
+
+
+#new theme
+s = ttk.Style()
+s.theme_names()
+('aqua', 'step','clam', 'alt', 'default', 'classic')
+s.theme_use()
+'step'
 
 my_notebook = ttk.Notebook(root)
 my_notebook.pack()
@@ -470,6 +518,7 @@ issue4.grid(row=30, column=1, sticky="ew")
 issue5.grid(row=31, column=1, sticky="ew")
 issue6.grid(row=32, column=1, sticky="ew")
 
+#count the characters in the comment field.  Show alert when 70 characters have been type.
 #char_count1
 #char_count1.grid(row26, column=2)
 #char_count2.grid(row27, column=3)
@@ -507,11 +556,11 @@ example6.grid(row=32, column=8, sticky="ew")
 
 #create Submit Button
 submit_btn = Button(my_frame2, text="Add Record to Database", command=submit)
-submit_btn.grid(row=6, Column=0, columnspan=2, pady=10, padx=10, ipadx=100)
+submit_btn.grid(row=33, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
 #Comment Changes
 conn.commit()
 #Close database connection
-conn.closes()
+conn.close()
 
 root.mainloop()
