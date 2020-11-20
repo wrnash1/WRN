@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('verizon.db')
+conn = sqlite3.connect('PM_database.db')
 
 c = conn.cursor()
 

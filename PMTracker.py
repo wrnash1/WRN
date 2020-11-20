@@ -32,13 +32,14 @@ conn = sqlite3.connect('verizon.db')
 c = conn.cursor()
 
 root = Tk()
-root.title('Verizon UTPM Tracker Verson 1 Alpha')
+root.title('UTPM Tracker Verson 1 Alpha')
 #root.iconbitmap('favicon.ico')
 p1 = PhotoImage(file = 'Verizon-logo.png')
 root.iconphoto(False, p1)
-#root.geometry("900x600")
-root.state('zoomed')
-
+try:
+    root.attributes('-zoomed', True)  #Linux
+except error:
+    root.state('zoomed')  #windows
 
 #define
 def mycomboclick(event):
@@ -73,6 +74,12 @@ def add_records():
     c = conn.cursor()
     c.executemany("INSERT INTO market VALUES (?,?,?)", (test, test, test))
 
+#new theme
+s = ttk.Style()
+s.theme_names()
+('aqua', 'step','clam', 'alt', 'default', 'classic')
+s.theme_use()
+'step'
 
 #Menu
 file_menu = Menu(root)
@@ -109,12 +116,6 @@ tabs_menu.add_command(label="PM Entry", command=menu_command)
 #style.theme_use("Verizon")
 
 
-#new theme
-s = ttk.Style()
-s.theme_names()
-('aqua', 'step','clam', 'alt', 'default', 'classic')
-s.theme_use()
-'step'
 
 my_notebook = ttk.Notebook(root)
 my_notebook.pack()

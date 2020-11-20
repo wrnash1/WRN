@@ -1,9 +1,11 @@
 from tkinter import *
 from tkinter import ttk
+from PIL import ImageTk, Image
+
 import sqlite3
 
 #Create sqlite3 database to hold values from PM Entry
-conn = sqlite3.connect('circuits.db')
+conn = sqlite3.connect('map.db')
 c = conn.cursor()
 
 root = Tk()
@@ -17,6 +19,12 @@ except error:
     root.state('zoomed')  #windows
 
 def menu_command():
+    pass
+
+def update_map():
+    pass
+
+def show_map():
     pass
 
 
@@ -46,7 +54,6 @@ tabs_menu.add_command(label="PM 5G BH", command=menu_command)
 tabs_menu.add_command(label="Maps", command=menu_command)
 tabs_menu.add_command(label="Active CCRs", command=menu_command)
 tabs_menu.add_command(label="PM Entry", command=menu_command)
-
 
 my_notebook = ttk.Notebook(root)
 my_notebook.pack()
