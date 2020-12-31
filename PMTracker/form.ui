@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PMTracker</class>
+ <widget class="QWidget" name="PMTracker">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>819</width>
+    <height>716</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PMTracker</string>
+  </property>
+  <property name="toolTipDuration">
+   <number>0</number>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabmenu">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="movable">
+      <bool>true</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="tab_market">
+      <attribute name="title">
+       <string>Market</string>
+      </attribute>
+      <widget class="QTabWidget" name="widget_display_team">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>411</width>
+         <height>521</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab_project_manager">
+        <attribute name="title">
+         <string>Project Manager</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="tab_planner">
+        <attribute name="title">
+         <string>Planner</string>
+        </attribute>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="widget_clock" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>240</y>
+         <width>261</width>
+         <height>80</height>
+        </rect>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhTime</set>
+       </property>
+      </widget>
+      <widget class="QCalendarWidget" name="widget_calendar">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>320</y>
+         <width>258</width>
+         <height>232</height>
+        </rect>
+       </property>
+       <property name="firstDayOfWeek">
+        <enum>Qt::Monday</enum>
+       </property>
+       <property name="horizontalHeaderFormat">
+        <enum>QCalendarWidget::ShortDayNames</enum>
+       </property>
+       <property name="verticalHeaderFormat">
+        <enum>QCalendarWidget::NoVerticalHeader</enum>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combobox_city">
+       <property name="geometry">
+        <rect>
+         <x>111</x>
+         <y>61</y>
+         <width>154</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::ActionsContextMenu</enum>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <property name="currentText">
+        <string>Please Select City</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Please Select City</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>1</x>
+         <y>21</y>
+         <width>106</width>
+         <height>152</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="layout_region">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="button_central">
+          <property name="text">
+           <string>Central</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="button_north_central">
+          <property name="text">
+           <string>North Central</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="button_south_east">
+          <property name="text">
+           <string>South East</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="button_west">
+          <property name="text">
+           <string>West</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_pm">
+      <attribute name="title">
+       <string>PM Entry Form</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_sites">
+      <attribute name="title">
+       <string>Sites Circuits</string>
+      </attribute>
+      <widget class="QTableWidget" name="table_sites">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>70</y>
+         <width>661</width>
+         <height>491</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_circuits">
+      <attribute name="title">
+       <string>Circuits</string>
+      </attribute>
+      <widget class="QTableWidget" name="table_circuits_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>40</y>
+         <width>661</width>
+         <height>511</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_maps">
+      <attribute name="title">
+       <string>Maps </string>
+      </attribute>
+      <widget class="QGraphicsView" name="map">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>201</width>
+         <height>121</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QGraphicsView" name="map_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>130</y>
+         <width>201</width>
+         <height>131</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QGraphicsView" name="map_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>270</y>
+         <width>201</width>
+         <height>161</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_reports">
+      <attribute name="title">
+       <string>Reports</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_links">
+      <attribute name="title">
+       <string>Links</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

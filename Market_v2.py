@@ -1,13 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 import sqlite3
-from tkcalendar import *
-from datetime import *
+#from tkcalendar import *
+import datetime 
+import time
 
-#Create sqlite3 database to hold values
-conn = sqlite3.connect('market.db')
-c = conn.cursor()
-
+#create window
 root = Tk()
 root.title('UTPM Tracker Verson 1 Alpha')
 #root.iconbitmap('favicon.ico')
@@ -16,18 +14,11 @@ root.iconphoto(False, p1)
 
 try:
     root.attributes('-zoomed', True)  #Linux
-except error:
+except Error:
     root.state('zoomed')  #windows
 
 def menu_command():
     pass
-
-def clock():
-    format ="%A %d %b %Y %H:%M:%S"
-    today = datetime.now()
-    s=today.strftime(format)
-    clock_label.config(text=s)
-    clock_label.after(1000, clock)
 
 def mycomboclick(event):
     global myCombo
@@ -51,15 +42,16 @@ def mycomboclick(event):
             myCombo.current(0)
             myCombo.bind("<<ComboboxSelected>>", mycomboclick)
             myCombo.grid(row=3, column=3)
-    
 
-#theme
-s = ttk.Style()
-s.theme_names()
-('aqua', 'step','clam', 'alt', 'default', 'classic')
-s.theme_use()
-'aqua'
+def get_time():
+    hour_min = time.strftime("%H:%M")
+    clock.config(text=hour_min)
+    clock.after(200, get_time)
 
+def get_second():
+    sec = time.strftime("%S")
+    second.config(text=sec)
+    second.after(200, get_second)
 
 #Menu
 file_menu = Menu(root)
@@ -74,18 +66,10 @@ tabs_menu = Menu(file_menu)
 file_menu.add_cascade(label="Tabs", menu=tabs_menu)
 tabs_menu.add_command(label="Market Info", command=menu_command)
 
-my_notebook = ttk.Notebook(root)
-my_notebook.pack()
-
-my_frame1 = Frame(my_notebook)
-
-my_frame1.pack(fill="both", expand=1)
-
-my_notebook.add(my_frame1, text="Market Info")
-
+my_frame1=Frame(root, width=100, height=300)
+my_frame1.grid(row=0, column=0)
 #Market Info
 label_market_instructions=Label(my_frame1, text="Please select your City")
-#label_market_instructions.pack()
 label_market_instructions.grid(row=2, column=1)
 
 #define dropdown window
@@ -99,19 +83,51 @@ SouthEast = ['Atlanta', 'Birmingham', 'Charlotte', 'Columbia', 'Durham', 'Greens
 myCombo = ttk.Combobox(my_frame1, value=Regions)
 myCombo.current(0)
 myCombo.bind("<<ComboboxSelected>>", mycomboclick)
-myCombo.grid(row=3, column=1)
-
-#Create clock
-
-clock_label = Label(my_frame1, text="", font=("Helvetica", 48))
-#clock_label.pack(pady=20)
-clock_label.grid(row=1, column=0, columnspan=9)
-clock()
+myCombo.grid(row=3, column=0)
 
 
-#Create Calendar
-cal = Calendar(my_frame1, selectmode="day")
-#cal.pack(fill="both", expand=True)
-cal.grid(row=10, column=0, columnspan=9, sticky="ew", padx=5, pady=10)
+#Create Clock in it's own frame
+x = datetime.datetime.now()
+clock_canvas = Frame(root, height=400, width=750)
+clock_canvas.grid(row=30, column=0)
+frame = Canvas(clock_canvas, bg='#696969')
+frame.place(relx=0, rely=0, relheight=1, relwidth=1)
+
+#Displays the 24-hour clock 00:00
+clock = Label(clock_canvas, fg="#8FBC8F", bg='#696969', font="Verdana 110", anchor="nw")
+clock.place(relx=0.05, rely=0.15, relheight=0.6, relwidth=0.7)
+
+#Displays the seconds in clock
+second = Label(clock_canvas, fg="#8FBC8F", bg='#696969', font="Verdana 30", anchor="nw")
+second.place(relx=0.7, rely=0.55, relheight=0.3, relwidth=0.1)
+
+#Label for month
+month = Label(clock_canvas, fg='#BDB76B', bg='#696969', text="MONTH", font="Verdana 15")
+month.place(relx=0.790, rely=0.1, relheight=0.15, relwidth=0.2)
+
+#Displays month name, short version (e.g. FEB)
+b = Label(clock_canvas, fg='#8FBC8F', bg='#696969', text=x.strftime("%b"), font="Verdana 25 bold")
+b.place(relx=0.790, rely=0.230, relheight=0.15, relwidth=0.2)
+
+#Label for date
+date = Label(clock_canvas, fg='#BDB76B', bg='#696969', text="DATE", font="Verdana 15")
+date.place(relx=0.790, rely=0.380, relheight=0.15, relwidth=0.2)
+
+#Displays day of month
+d = Label(clock_canvas, fg='#8FBC8F', bg='#696969', text=x.strftime("%d"), font="Verdana 25 bold")
+d.place(relx=0.790, rely=0.51, relheight=0.15, relwidth=0.2)
+
+#Label for weekday
+day = Label(clock_canvas, fg='#BDB76B', bg='#696969', text="DAY", font="Verdana 15")
+day.place(relx=0.790, rely=0.650, relheight=0.15, relwidth=0.2)
+
+#Displays weekday, short version (e.g. Wed)
+a = Label(clock_canvas, fg='#8FBC8F', bg='#696969', text=x.strftime("%a"), font="Verdana 25 bold")
+a.place(relx=0.790, rely=0.77, relheight=0.15, relwidth=0.2)
+
+get_time()
+get_second()
+
+
 
 root.mainloop()
