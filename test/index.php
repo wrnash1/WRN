@@ -25,6 +25,7 @@
   <br>
   <?php include "include/grade.php"; ?>
   <?php include "include/shirt.php"; ?>
+  <?php include "include/attend.php"; ?>
   <br>
   <?php include "include/girl_scout.php"; ?>
 
