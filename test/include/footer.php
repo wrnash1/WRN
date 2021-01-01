@@ -10,9 +10,7 @@
           </div>
 <footer class="footer mt-auto py-3 bg-primary">
   <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+    <span class="text-muted">© 2021 Texas Wesleyan Univeristy. All rights reserved..</span>
   </div>
 </footer>
 
-</body>
-</html>
