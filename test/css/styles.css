@@ -2,8 +2,12 @@
   body {
     background-color: rgb(25, 80, 138);
   }
+<<<<<<< HEAD
   #header {
     height: 120px !important;
+=======
+
+>>>>>>> 34840c80550dd651447a44cd7cf2eebad3c88e00
   .header {
     height: 20px !important;
     background-color: white;
