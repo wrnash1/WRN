@@ -3,8 +3,13 @@
     background-color: rgb(25, 80, 138);
   }
 
+<<<<<<< ours
   #header {
     height: 120px !important;
+=======
+  .header {
+    height: 20px !important;
+>>>>>>> theirs
     background-color: white;
   }
 
@@ -18,7 +23,7 @@
     margin: 1.5em;
   }
 
-  #main-content {
+  .main-content {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
